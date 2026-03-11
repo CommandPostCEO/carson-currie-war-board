@@ -137,7 +137,7 @@ body{
 
 /* ── STAT ROW ── */
 .stats-row{
-  display:grid;grid-template-columns:repeat(5,1fr);
+  display:grid;grid-template-columns:repeat(6,1fr);
   gap:1px;background:var(--border2);
   border-bottom:1px solid var(--border2);
 }
@@ -360,6 +360,7 @@ body{
 .chip-roster-tight{background:rgba(232,125,32,0.1);color:#FFB060;border-color:rgba(232,125,32,0.25);}
 .chip-roster-full {background:rgba(232,64,64,0.1);color:#FF7070;border-color:rgba(232,64,64,0.25);}
 .chip-next   {background:rgba(88,86,214,0.12);color:#9896F0;border-color:rgba(88,86,214,0.25);}
+.chip-quest-done{background:rgba(40,176,96,0.12);color:#4DC878;border-color:rgba(40,176,96,0.3);}
 
 /* Connection bar on card */
 .card-connection{
@@ -480,6 +481,7 @@ body{
   transition:all 0.15s;white-space:nowrap;
 }
 .action-btn.quest{background:rgba(201,168,76,0.1);color:var(--gold);border:1px solid var(--gold-border);}
+.action-btn.quest-done{background:rgba(40,176,96,0.12);color:#4DC878;border:1px solid rgba(40,176,96,0.3);}
 .action-btn.dir{background:rgba(255,255,255,0.05);color:var(--text2);border:1px solid var(--border2);}
 .action-btn.teamx{background:rgba(255,255,255,0.05);color:var(--text2);border:1px solid var(--border2);}
 .action-btn.edit-btn{background:rgba(88,86,214,0.12);color:#9896F0;border:1px solid rgba(88,86,214,0.25);margin-left:auto;}
@@ -642,7 +644,8 @@ body{
   .hero-layout{flex-direction:column;gap:16px;}
   .hero-photo{width:72px;height:72px;}
   .stats-row{grid-template-columns:1fr 1fr;}
-  .stat-tile:nth-child(5){grid-column:1/-1;}
+  .stat-tile:nth-child(5){grid-column:auto;}
+  .stat-tile:nth-child(7){grid-column:1/-1;}
   .pipeline-funnel{gap:0;}
   .ps-label{font-size:7px;}
 }
@@ -716,6 +719,7 @@ body{
   <div class="stat-tile"><div class="stat-icon">🏫</div><div class="stat-num" id="totalSchools">40</div><div class="stat-label">Total Schools</div></div>
   <div class="stat-tile"><div class="stat-icon">📹</div><div class="stat-num" id="filmSentCount">40</div><div class="stat-label">Film Sent</div></div>
   <div class="stat-tile"><div class="stat-icon">📞</div><div class="stat-num" id="contactedCount">40</div><div class="stat-label">Contacted</div></div>
+  <div class="stat-tile"><div class="stat-icon">📝</div><div class="stat-num" id="questCount">0</div><div class="stat-label">Quest. Done</div></div>
   <div class="stat-tile"><div class="stat-icon">🏕</div><div class="stat-num" id="campCount">0</div><div class="stat-label">Camps</div></div>
   <div class="stat-tile"><div class="stat-icon">✈</div><div class="stat-num" id="visitCount">0</div><div class="stat-label">Visits</div></div>
 </div>
@@ -792,6 +796,8 @@ body{
       <div class="coach-contact-row"></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -841,7 +847,9 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/MattGuerrieri" target="_blank" onclick="event.stopPropagation()" title="@MattGuerrieri">𝕏</a></div>
     </div></div>
 
-    <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span><span class="chip chip-conn">🔗 Garret Wilson - LT Grad</span></div>
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Garret Wilson - LT Grad</span></div>
+
+    <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
       <div class="pipeline-label-row">
@@ -889,6 +897,8 @@ body{
       <div class="coach-name">Joel Gordon</div>
       <div class="coach-contact-row"></div>
     </div></div>
+
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Caleb Burton - LT Grad</span></div>
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -939,6 +949,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/Coach_Beck7" target="_blank" onclick="event.stopPropagation()" title="@Coach_Beck7">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -988,6 +1000,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachLukeHuard" target="_blank" onclick="event.stopPropagation()" title="@CoachLukeHuard">𝕏</a></div>
     </div></div>
 
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Lake McRee - LT Grad</span></div>
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1036,6 +1050,8 @@ body{
       <div class="coach-name">Mike Bobo</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachMikeBobo" target="_blank" onclick="event.stopPropagation()" title="@CoachMikeBobo">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1094,6 +1110,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/KJJFlood" target="_blank" onclick="event.stopPropagation()" title="@KJJFlood">𝕏</a></div>
     </div></div>
 
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Kenny Vaccaro / Black Gideon</span></div>
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1142,6 +1160,8 @@ body{
       <div class="coach-name">Buster Faulkner</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/Buster_Faulkner" target="_blank" onclick="event.stopPropagation()" title="@Buster_Faulkner">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1192,6 +1212,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/WeisJr_M" target="_blank" onclick="event.stopPropagation()" title="@WeisJr_M">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1240,6 +1262,8 @@ body{
       <div class="coach-name">Shannon Dawson</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachDawson_UM" target="_blank" onclick="event.stopPropagation()" title="@CoachDawson_UM">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1290,6 +1314,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/arbuckle_ben" target="_blank" onclick="event.stopPropagation()" title="@arbuckle_ben">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1338,6 +1364,8 @@ body{
       <div class="coach-name">Drew Mehringer</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/DrewMehringer" target="_blank" onclick="event.stopPropagation()" title="@DrewMehringer">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1388,6 +1416,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/T_Mouser" target="_blank" onclick="event.stopPropagation()" title="@T_Mouser">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1436,6 +1466,8 @@ body{
       <div class="coach-name">Joey Halzle</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachHalzle" target="_blank" onclick="event.stopPropagation()" title="@CoachHalzle">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1486,6 +1518,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/HolmonWiggins" target="_blank" onclick="event.stopPropagation()" title="@HolmonWiggins">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1534,6 +1568,8 @@ body{
       <div class="coach-name">Chad Morris</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/coachchadmorris" target="_blank" onclick="event.stopPropagation()" title="@coachchadmorris">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1592,6 +1628,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/ChipLindsey11" target="_blank" onclick="event.stopPropagation()" title="@ChipLindsey11">𝕏</a></div>
     </div></div>
 
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Coach Peeler's TX roots</span></div>
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1640,6 +1678,8 @@ body{
       <div class="coach-name">Mack Leftwich</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/Coach_Leftwich" target="_blank" onclick="event.stopPropagation()" title="@Coach_Leftwich">𝕏</a></div>
     </div></div>
+
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Mom's alma mater</span></div>
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1690,6 +1730,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachJoeSloan" target="_blank" onclick="event.stopPropagation()" title="@CoachJoeSloan">𝕏</a></div>
     </div></div>
 
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Will Stein former LT OC</span></div>
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1738,6 +1780,8 @@ body{
       <div class="coach-name">Seth Doege</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachDoege" target="_blank" onclick="event.stopPropagation()" title="@CoachDoege">𝕏</a></div>
     </div></div>
+
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Yogi contact / Doege Texas connection</span></div>
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1788,6 +1832,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon email" href="mailto:Jake_Spavital@Baylor.edu" onclick="event.stopPropagation()" title="Jake_Spavital@Baylor.edu">✉</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1831,6 +1877,8 @@ body{
       <div class="coach-name">Mike Shanahan</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachShanahan_" target="_blank" onclick="event.stopPropagation()" title="@CoachShanahan_">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1881,6 +1929,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachLubick" target="_blank" onclick="event.stopPropagation()" title="@CoachLubick">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -1929,6 +1979,8 @@ body{
       <div class="coach-name">Tim Beck</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/Coachtimbeck" target="_blank" onclick="event.stopPropagation()" title="@Coachtimbeck">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -1979,6 +2031,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/TimBeckFB" target="_blank" onclick="event.stopPropagation()" title="@TimBeckFB">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2028,6 +2082,8 @@ body{
       <div class="coach-contact-row"></div>
     </div></div>
 
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Yogi contact</span></div>
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2076,6 +2132,8 @@ body{
       <div class="coach-name">Mike Denbrock</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/MikeDenbrock" target="_blank" onclick="event.stopPropagation()" title="@MikeDenbrock">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -2134,6 +2192,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon email" href="mailto:mpiatkow@emich.edu" onclick="event.stopPropagation()" title="mpiatkow@emich.edu">✉</a><a class="contact-icon xbird" href="https://twitter.com/M__Piatkowski" target="_blank" onclick="event.stopPropagation()" title="@M__Piatkowski">𝕏</a></div>
     </div></div>
 
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Nick Kinsey - Hoban Grad</span></div>
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2177,6 +2237,8 @@ body{
       <div class="coach-name">JD Brookhart</div>
       <div class="coach-contact-row"><a class="contact-icon email" href="mailto:jbrookha@uakron.edu" onclick="event.stopPropagation()" title="jbrookha@uakron.edu">✉</a><a class="contact-icon xbird" href="https://twitter.com/CoachJDBrook" target="_blank" onclick="event.stopPropagation()" title="@CoachJDBrook">𝕏</a></div>
     </div></div>
+
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Markus Boswell - LT Grad</span></div>
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -2227,6 +2289,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachCPatt" target="_blank" onclick="event.stopPropagation()" title="@CoachCPatt">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2275,6 +2339,8 @@ body{
       <div class="coach-name">Cris Reisert</div>
       <div class="coach-contact-row"><a class="contact-icon email" href="mailto:christopher.reisert@utoledo.edu" onclick="event.stopPropagation()" title="christopher.reisert@utoledo.edu">✉</a><a class="contact-icon xbird" href="https://twitter.com/CoachReisert" target="_blank" onclick="event.stopPropagation()" title="@CoachReisert">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -2325,6 +2391,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachChapin" target="_blank" onclick="event.stopPropagation()" title="@CoachChapin">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2373,6 +2441,8 @@ body{
       <div class="coach-name">Slade Nagle</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/Coach_Nagle" target="_blank" onclick="event.stopPropagation()" title="@Coach_Nagle">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -2423,6 +2493,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon email" href="mailto:timothy-lester@hawkeyefootball.com" onclick="event.stopPropagation()" title="timothy-lester@hawkeyefootball.com">✉</a><a class="contact-icon xbird" href="https://twitter.com/CoachTimLester" target="_blank" onclick="event.stopPropagation()" title="@CoachTimLester">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2466,6 +2538,8 @@ body{
       <div class="coach-name">Kishawn McClain</div>
       <div class="coach-contact-row"></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -2516,6 +2590,8 @@ body{
       <div class="coach-contact-row"></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2564,6 +2640,8 @@ body{
       <div class="coach-name">Gordon Sammis</div>
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/CoachSammis" target="_blank" onclick="event.stopPropagation()" title="@CoachSammis">𝕏</a></div>
     </div></div>
+
+    
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -2614,6 +2692,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/LDKep" target="_blank" onclick="event.stopPropagation()" title="@LDKep">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2663,6 +2743,8 @@ body{
       <div class="coach-contact-row"><a class="contact-icon xbird" href="https://twitter.com/RickBowie2" target="_blank" onclick="event.stopPropagation()" title="@RickBowie2">𝕏</a></div>
     </div></div>
 
+    
+
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
     <div class="card-pipeline">
@@ -2711,6 +2793,8 @@ body{
       <div class="coach-name">Craig Stutzmann</div>
       <div class="coach-contact-row"><a class="contact-icon email" href="mailto:craig.stutzmann@sjsu.edu" onclick="event.stopPropagation()" title="craig.stutzmann@sjsu.edu">✉</a><a class="contact-icon xbird" href="https://twitter.com/CoachStutzmann" target="_blank" onclick="event.stopPropagation()" title="@CoachStutzmann">𝕏</a></div>
     </div></div>
+
+    <div class="card-connection"><span class="card-conn-icon">🔗</span><span class="card-conn-label">Via</span><span class="card-conn-value">Yogi contact</span></div>
 
     <div class="card-status"><span class="chip chip-film-yes">📹 Film Sent</span><span class="chip chip-film-yes">📞 Contacted</span></div>
 
@@ -2852,6 +2936,14 @@ body{
           <label>WR Spots Remaining (2027)</label>
           <input type="number" id="m_wrSpots" min="0" max="10" placeholder="e.g. 2">
         </div>
+        <div class="modal-field">
+          <label>Questionnaire Completed?</label>
+          <select id="m_questDone">
+            <option value="">—</option>
+            <option value="Y">✅ Yes — Submitted</option>
+            <option value="N">❌ No — Not Yet</option>
+          </select>
+        </div>
         <div class="modal-field full">
           <label>Questionnaire URL</label>
           <input type="url" id="m_questURL" placeholder="https://…">
@@ -2920,56 +3012,56 @@ const SCHOOL_DB = {
 
 /* ─── RAW DATA ─── */
 const rawData = [
-  ["Alabama","Tier 1 – Dream","Derrick Nix",null,"@DerrickDnix","Ryan Grubb",null,null,null,null,"Y","Dad","Y",null,null,null,"Attended camp last 3 years",null,null,null],
-  ["Ohio State","Tier 1 – Dream","Cortez Hankton","hankton.3@osu.edu","@Coach_Hankton","Matt Guerrieri",null,"@MattGuerrieri",null,null,"Y","Dad","Y",null,null,null,"Attended camp last 3 years","Garret Wilson - LT Grad",null,null],
-  ["Auburn","Tier 1 – Dream","Kodi Burns",null,"@KodiBurns","Joel Gordon",null,null,null,null,"Y","Dad","Y",null,null,null,"Former LT Grad, Caleb Burton attended",null,null,null],
-  ["Michigan","Tier 1 – Dream","Marques Hagans",null,"@coachmhagans","Jason Beck",null,"@Coach_Beck7",null,null,"Y","Dad","Y",null,null,null,"Grandparents are alumns and live in the area",null,null,null],
-  ["USC","Tier 1 – Dream","Dennis Simmons",null,"@CoachSimmonsSC","Luke Huard",null,"@CoachLukeHuard",null,null,"Y","Dad","Y",null,null,null,"Lake McRee is LT alumn",null,null,null],
-  ["Georgia","Tier 1 – Dream","James Coley",null,"@CoachColey","Mike Bobo",null,"@CoachMikeBobo",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Texas","Tier 2 – Reach","Chris Jackson",null,"@ciege81","Kyle Flood",null,"@KJJFlood",null,null,"Y","Dad","Y",null,null,null,"Vaccaro connection with Blake Gideon",null,null,null],
-  ["Florida","Tier 2 – Reach","Marcus Davis",null,"@CoachDavisWR","Buster Faulkner",null,"@Buster_Faulkner",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["LSU","Tier 2 – Reach","George McDonald",null,"@CoachGMcDonald","Charlie Weis, Jr.",null,"@WeisJr_M",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Miami","Tier 2 – Reach","Kevin Beard",null,"@Kevin_Beard9","Shannon Dawson",null,"@CoachDawson_UM",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Oklahoma","Tier 2 – Reach","Emmett Jones",null,"@CoachEmmett","Ben Arbuckle",null,"@arbuckle_ben",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Oregon","Tier 2 – Reach","Ross Douglas",null,"@RossDoug21","Drew Mehringer",null,"@DrewMehringer",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Penn State","Tier 2 – Reach","Kashif Moore",null,"@KashifMoore","Taylor Mouser",null,"@T_Mouser",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Tennessee","Tier 2 – Reach","Kelsey Pope",null,"@CoachKelseyPope","Joey Halzle",null,"@CoachHalzle",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Texas A&M","Tier 2 – Reach","John Perry",null,"@CoachJohn_Perry","Holmon Wiggins",null,"@HolmonWiggins",null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null],
-  ["Clemson","Tier 2 – Reach","Tyler Grisham",null,"@Coach_Grisham","Chad Morris",null,"@coachchadmorris",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Missouri","Tier 3 – Target","Jacob Peeler",null,"@NastyWideOuts","Chip Lindsey",null,"@ChipLindsey11",null,null,"Y","Dad","Y",null,null,null,"Coach Peeler's TX roots",null,null,null],
-  ["Texas Tech","Tier 3 – Target","Justin Johnson",null,"@COACHJUICE_","Mack Leftwich",null,"@Coach_Leftwich",null,null,"Y","Dad","Y",null,null,null,"Mom's alma mater",null,null,null],
-  ["Kentucky","Tier 3 – Target","Joe Price III",null,"@CoachJP3","Joe Sloan",null,"@CoachJoeSloan",null,null,"Y","Dad","Y",null,null,null,"Will Stein former LT OC",null,null,null],
-  ["Arizona","Tier 3 – Target","Bobby Wade",null,"@CoachBobbyWade","Seth Doege",null,"@CoachDoege",null,null,"Y","Dad","Y",null,null,null,"Yogi contact, Doege Texas connection",null,null,null],
-  ["Baylor","Tier 3 – Target","Dallas Baker","Dallas_Baker@Baylor.edu","@CoachDBaker81","Jake Spavital","Jake_Spavital@Baylor.edu",null,null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null],
-  ["Indiana","Tier 3 – Target",null,null,null,"Mike Shanahan",null,"@CoachShanahan_",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Kansas","Tier 3 – Target","Terrence Samuel",null,"@CoachTSamuel","Matt Lubick",null,"@CoachLubick",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["USF","Tier 3 – Target","Myles White",null,"@M_White03","Tim Beck",null,"@Coachtimbeck",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Vanderbilt","Tier 3 – Target","Alex Bailey",null,"@CoachAlexBailey","Tim Beck",null,"@TimBeckFB",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Michigan State","Tier 3 – Target","Courtney Hawkins",null,"@CoachHawk_5","Nick Sheridan",null,null,null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Notre Dame","Tier 3 – Target","Mike Brown",null,null,"Mike Denbrock",null,"@MikeDenbrock",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Eastern Michigan","Tier 4 – Early Opportunity","Erik Campbell",null,"@ErikCampbell","Mike Piatkowski","mpiatkow@emich.edu","@M__Piatkowski",null,null,"Y","Dad","Y",null,null,null,"Former Hoban QB currently attends",null,null,null],
-  ["Akron","Tier 4 – Early Opportunity","JD Brookhart","jbrookha@uakron.edu","@CoachJDBrook",null,null,null,null,null,"Y","Dad","Y",null,null,null,"Lived in Akron. Former LT Grad, Markus Boswell attended",null,null,null],
-  ["Kent State","Tier 4 – Early Opportunity","Isaac Vance",null,"@CoachIsaacVance","Clay Patterson",null,"@CoachCPatt",null,null,"Y","Dad","Y",null,null,null,"Lived in Akron",null,null,null],
-  ["Toledo","Tier 4 – Early Opportunity","Devin Figaro","devin.figaro@utoledo.edu","@CoachFigaro","Cris Reisert","christopher.reisert@utoledo.edu","@CoachReisert",null,null,"Y","Dad","Y",null,null,null,"Lived in Akron",null,null,null],
-  ["Central Michigan","Tier 4 – Early Opportunity","Brandon Johnson-Farrell",null,"@Coach_BJFarrell","Jim Chapin",null,"@CoachChapin",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Houston","Tier 4 – Early Opportunity","Brian Bell",null,"@Bell_Brian_","Slade Nagle",null,"@Coach_Nagle",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["Iowa","Tier 4 – Early Opportunity","Jon Budmayr","jon-budmayr@hawkeyefootball.com","@CoachBudmayr","Tim Lester","timothy-lester@hawkeyefootball.com","@CoachTimLester",null,null,"Y","Dad","Y",null,null,null,null,null,null,null],
-  ["North Texas","Tier 4 – Early Opportunity","Kishawn McClain",null,null,null,null,null,null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null],
-  ["SMU","Tier 4 – Early Opportunity","Rob Likens",null,"@CoachRobLikens","D'Eriq King",null,null,null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null],
-  ["TCU","Tier 4 – Early Opportunity","Malcolm Kelly",null,"@CoachMXKelly","Gordon Sammis",null,"@CoachSammis",null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null],
-  ["Texas State","Tier 4 – Early Opportunity","Randy Martinez",null,"@CoachMart1nez","Landon Keopple",null,"@LDKep",null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null],
-  ["UTSA","Tier 4 – Early Opportunity","DeNarius McGhee",null,null,"Rick Bowie",null,"@RickBowie2",null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null],
-  ["San Jose State","Tier 4 – Early Opportunity","Billy Ray Stutzmann","billyray.stutzmann@sjsu.edu","@BRayStutzmann","Craig Stutzmann","craig.stutzmann@sjsu.edu","@CoachStutzmann",null,null,"Y","Dad","Y",null,null,null,null,null,null,null]
+  ["Alabama","Tier 1 – Dream","Derrick Nix",null,"@DerrickDnix","Ryan Grubb",null,null,null,null,"Y","Dad","Y",null,null,null,"Attended camp last 3 years",null,null,null,null,null,null],
+  ["Ohio State","Tier 1 – Dream","Cortez Hankton","hankton.3@osu.edu","@Coach_Hankton","Matt Guerrieri",null,"@MattGuerrieri",null,null,"Y","Dad","Y",null,null,null,"Attended camp last 3 years","Garret Wilson - LT Grad",null,null,null,null,null],
+  ["Auburn","Tier 1 – Dream","Kodi Burns",null,"@KodiBurns","Joel Gordon",null,null,null,null,"Y","Dad","Y",null,null,null,"Former LT Grad, Caleb Burton attended","Caleb Burton - LT Grad",null,null,null,null,null],
+  ["Michigan","Tier 1 – Dream","Marques Hagans",null,"@coachmhagans","Jason Beck",null,"@Coach_Beck7",null,null,"Y","Dad","Y",null,null,null,"Grandparents are alumns and live in the area",null,null,null,null,null,null],
+  ["USC","Tier 1 – Dream","Dennis Simmons",null,"@CoachSimmonsSC","Luke Huard",null,"@CoachLukeHuard",null,null,"Y","Dad","Y",null,null,null,"Lake McRee is LT alumn","Lake McRee - LT Grad",null,null,null,null,null],
+  ["Georgia","Tier 1 – Dream","James Coley",null,"@CoachColey","Mike Bobo",null,"@CoachMikeBobo",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Texas","Tier 2 – Reach","Chris Jackson",null,"@ciege81","Kyle Flood",null,"@KJJFlood",null,null,"Y","Dad","Y",null,null,null,"Vaccaro connection with Blake Gideon","Kenny Vaccaro / Black Gideon",null,null,null,null,null],
+  ["Florida","Tier 2 – Reach","Marcus Davis",null,"@CoachDavisWR","Buster Faulkner",null,"@Buster_Faulkner",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["LSU","Tier 2 – Reach","George McDonald",null,"@CoachGMcDonald","Charlie Weis, Jr.",null,"@WeisJr_M",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Miami","Tier 2 – Reach","Kevin Beard",null,"@Kevin_Beard9","Shannon Dawson",null,"@CoachDawson_UM",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Oklahoma","Tier 2 – Reach","Emmett Jones",null,"@CoachEmmett","Ben Arbuckle",null,"@arbuckle_ben",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Oregon","Tier 2 – Reach","Ross Douglas",null,"@RossDoug21","Drew Mehringer",null,"@DrewMehringer",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Penn State","Tier 2 – Reach","Kashif Moore",null,"@KashifMoore","Taylor Mouser",null,"@T_Mouser",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Tennessee","Tier 2 – Reach","Kelsey Pope",null,"@CoachKelseyPope","Joey Halzle",null,"@CoachHalzle",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Texas A&M","Tier 2 – Reach","John Perry",null,"@CoachJohn_Perry","Holmon Wiggins",null,"@HolmonWiggins",null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null,null,null,null],
+  ["Clemson","Tier 2 – Reach","Tyler Grisham",null,"@Coach_Grisham","Chad Morris",null,"@coachchadmorris",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Missouri","Tier 3 – Target","Jacob Peeler",null,"@NastyWideOuts","Chip Lindsey",null,"@ChipLindsey11",null,null,"Y","Dad","Y",null,null,null,"Coach Peeler's TX roots","Coach Peeler's TX roots",null,null,null,null,null],
+  ["Texas Tech","Tier 3 – Target","Justin Johnson",null,"@COACHJUICE_","Mack Leftwich",null,"@Coach_Leftwich",null,null,"Y","Dad","Y",null,null,null,"Mom's alma mater","Mom's alma mater",null,null,null,null,null],
+  ["Kentucky","Tier 3 – Target","Joe Price III",null,"@CoachJP3","Joe Sloan",null,"@CoachJoeSloan",null,null,"Y","Dad","Y",null,null,null,"Will Stein former LT OC","Will Stein former LT OC",null,null,null,null,null],
+  ["Arizona","Tier 3 – Target","Bobby Wade",null,"@CoachBobbyWade","Seth Doege",null,"@CoachDoege",null,null,"Y","Dad","Y",null,null,null,"Yogi contact, Doege Texas connection","Yogi contact / Doege Texas connection",null,null,null,null,null],
+  ["Baylor","Tier 3 – Target","Dallas Baker","Dallas_Baker@Baylor.edu","@CoachDBaker81","Jake Spavital","Jake_Spavital@Baylor.edu",null,null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null,null,null,null],
+  ["Indiana","Tier 3 – Target",null,null,null,"Mike Shanahan",null,"@CoachShanahan_",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Kansas","Tier 3 – Target","Terrence Samuel",null,"@CoachTSamuel","Matt Lubick",null,"@CoachLubick",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["USF","Tier 3 – Target","Myles White",null,"@M_White03","Tim Beck",null,"@Coachtimbeck",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Vanderbilt","Tier 3 – Target","Alex Bailey",null,"@CoachAlexBailey","Tim Beck",null,"@TimBeckFB",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Michigan State","Tier 3 – Target","Courtney Hawkins",null,"@CoachHawk_5","Nick Sheridan",null,null,null,null,"Y","Dad","Y",null,null,null,null,"Yogi contact",null,null,null,null,null],
+  ["Notre Dame","Tier 3 – Target","Mike Brown",null,null,"Mike Denbrock",null,"@MikeDenbrock",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Eastern Michigan","Tier 4 – Early Opportunity","Erik Campbell",null,"@ErikCampbell","Mike Piatkowski","mpiatkow@emich.edu","@M__Piatkowski",null,null,"Y","Dad","Y",null,null,null,"Former Hoban QB currently attends","Nick Kinsey - Hoban Grad",null,null,null,null,null],
+  ["Akron","Tier 4 – Early Opportunity","JD Brookhart","jbrookha@uakron.edu","@CoachJDBrook",null,null,null,null,null,"Y","Dad","Y",null,null,null,"Lived in Akron. Former LT Grad, Markus Boswell attended","Markus Boswell - LT Grad",null,null,null,null,null],
+  ["Kent State","Tier 4 – Early Opportunity","Isaac Vance",null,"@CoachIsaacVance","Clay Patterson",null,"@CoachCPatt",null,null,"Y","Dad","Y",null,null,null,"Lived in Akron",null,null,null,null,null,null],
+  ["Toledo","Tier 4 – Early Opportunity","Devin Figaro","devin.figaro@utoledo.edu","@CoachFigaro","Cris Reisert","christopher.reisert@utoledo.edu","@CoachReisert",null,null,"Y","Dad","Y",null,null,null,"Lived in Akron",null,null,null,null,null,null],
+  ["Central Michigan","Tier 4 – Early Opportunity","Brandon Johnson-Farrell",null,"@Coach_BJFarrell","Jim Chapin",null,"@CoachChapin",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Houston","Tier 4 – Early Opportunity","Brian Bell",null,"@Bell_Brian_","Slade Nagle",null,"@Coach_Nagle",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["Iowa","Tier 4 – Early Opportunity","Jon Budmayr","jon-budmayr@hawkeyefootball.com","@CoachBudmayr","Tim Lester","timothy-lester@hawkeyefootball.com","@CoachTimLester",null,null,"Y","Dad","Y",null,null,null,null,null,null,null,null,null,null],
+  ["North Texas","Tier 4 – Early Opportunity","Kishawn McClain",null,null,null,null,null,null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null,null,null,null],
+  ["SMU","Tier 4 – Early Opportunity","Rob Likens",null,"@CoachRobLikens","D'Eriq King",null,null,null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null,null,null,null],
+  ["TCU","Tier 4 – Early Opportunity","Malcolm Kelly",null,"@CoachMXKelly","Gordon Sammis",null,"@CoachSammis",null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null,null,null,null],
+  ["Texas State","Tier 4 – Early Opportunity","Randy Martinez",null,"@CoachMart1nez","Landon Keopple",null,"@LDKep",null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null,null,null,null],
+  ["UTSA","Tier 4 – Early Opportunity","DeNarius McGhee",null,null,"Rick Bowie",null,"@RickBowie2",null,null,"Y","Dad","Y",null,null,null,"Currently live in Austin",null,null,null,null,null,null],
+  ["San Jose State","Tier 4 – Early Opportunity","Billy Ray Stutzmann","billyray.stutzmann@sjsu.edu","@BRayStutzmann","Craig Stutzmann","craig.stutzmann@sjsu.edu","@CoachStutzmann",null,null,"Y","Dad","Y",null,null,null,null,"Yogi contact",null,null,null,null,null]
 ];
 
 let schools = rawData.map((r,i)=>({
   id:i, school:r[0], tier:r[1], wrCoach:r[2], wrEmail:r[3], wrTwitter:r[4],
   oc:r[5], ocEmail:r[6], ocTwitter:r[7],
-  campDate:r[8]||'', campDate2:r[20]||'', campDate3:r[21]||'', campDate4:r[22]||'',
-  visitPlan:r[9]||'',
+  campDate:r[8]||'', visitPlan:r[9]||'',
   filmSent:r[10]||'', filmSentBy:r[11]||'', coachContacted:r[12]||'',
   interestLevel:r[13]||'', lastContact:r[14]||'', nextAction:r[15]||'',
-  notes:r[16]||'', connection:r[17]||'', wrSpotsRemaining:r[18]||'', questURL:r[19]||''
+  notes:r[16]||'', connection:r[17]||'', wrSpotsRemaining:r[18]||'', questURL:r[19]||'',
+  campDate2:r[20]||'', campDate3:r[21]||'', campDate4:r[22]||'', questDone:r[23]||''
 }));
 
 /* ─── CONSTANTS ─── */
@@ -2991,8 +3083,9 @@ function initials(name){
 
 function pipelineScore(s){
   let sc=0;
-  if(s.filmSent==='Y')sc+=30;
-  if(s.coachContacted==='Y')sc+=25;
+  if(s.filmSent==='Y')sc+=25;
+  if(s.coachContacted==='Y')sc+=20;
+  if(s.questDone==='Y')sc+=10;
   if(s.campDate||s.campDate2||s.campDate3||s.campDate4)sc+=20;
   if(s.visitPlan)sc+=15;
   const il={Hot:10,Warm:7,Cool:4,Cold:1};
@@ -3149,6 +3242,7 @@ function renderCard(s){
   if(s.filmSent==='Y') chips += `<span class="chip chip-film-yes">📹 Film Sent</span>`;
   else if(s.filmSent==='N') chips += `<span class="chip chip-film-no">📹 Pending</span>`;
   if(s.coachContacted==='Y') chips += `<span class="chip chip-film-yes">📞 Contacted</span>`;
+  if(s.questDone==='Y') chips += `<span class="chip chip-quest-done">📝 Quest. Done</span>`;
   // Camp dates with calendar icons
   [s.campDate, s.campDate2, s.campDate3, s.campDate4].forEach(dt=>{
     if(dt) chips += campDateChip(s.school, dt);
@@ -3169,7 +3263,9 @@ function renderCard(s){
   const questUrl = s.questURL
     ? s.questURL
     : `https://www.google.com/search?q=${encodeURIComponent(s.school+' football recruiting questionnaire')}`;
-  const questBtn = `<a class="action-btn quest" href="${questUrl}" target="_blank" onclick="event.stopPropagation()">📝 Quest.</a>`;
+  const questBtn = s.questDone==='Y'
+    ? `<a class="action-btn quest-done" href="${questUrl}" target="_blank" onclick="event.stopPropagation()">✅ Quest. Done</a>`
+    : `<a class="action-btn quest" href="${questUrl}" target="_blank" onclick="event.stopPropagation()">📝 Quest.</a>`;
   const dirBtn = db.dir
     ? `<a class="action-btn dir" href="https://www.google.com/search?q=${encodeURIComponent(db.dir)}" target="_blank" onclick="event.stopPropagation()">🏛 Dir.</a>` : '';
   const teamXBtn = db.teamX
@@ -3272,6 +3368,7 @@ function renderBoard(){
   document.getElementById('totalSchools').textContent  = schools.length;
   document.getElementById('filmSentCount').textContent = schools.filter(s=>s.filmSent==='Y').length;
   document.getElementById('contactedCount').textContent= schools.filter(s=>s.coachContacted==='Y').length;
+  document.getElementById('questCount').textContent    = schools.filter(s=>s.questDone==='Y').length;
   document.getElementById('campCount').textContent     = schools.filter(s=>s.campDate||s.campDate2||s.campDate3||s.campDate4).length;
   document.getElementById('visitCount').textContent    = schools.filter(s=>s.visitPlan).length;
 
@@ -3334,6 +3431,7 @@ function openModal(id){
   document.getElementById('m_camp4').value = s.campDate4||'';
   document.getElementById('m_wrSpots').value  = s.wrSpotsRemaining||'';
   document.getElementById('m_questURL').value = s.questURL||'';
+  document.getElementById('m_questDone').value = s.questDone||'';
   document.getElementById('editModal').classList.add('active');
 }
 function closeModal(){
@@ -3357,6 +3455,7 @@ function saveModal(){
   s.wrSpotsRemaining = document.getElementById('m_wrSpots').value;
   s.notes            = document.getElementById('m_notes').value;
   s.questURL         = document.getElementById('m_questURL').value;
+  s.questDone        = document.getElementById('m_questDone').value;
   closeModal();
   renderBoard();
 }
@@ -3374,7 +3473,7 @@ function buildExportHTML(){
          + `${v(s.filmSent||null)},${v(s.filmSentBy||null)},${v(s.coachContacted||null)},`
          + `${v(s.interestLevel||null)},${v(s.lastContact||null)},${v(s.nextAction||null)},`
          + `${v(s.notes||null)},${v(s.connection||null)},${v(s.wrSpotsRemaining||null)},${v(s.questURL||null)},`
-         + `${v(s.campDate2||null)},${v(s.campDate3||null)},${v(s.campDate4||null)}]`;
+         + `${v(s.campDate2||null)},${v(s.campDate3||null)},${v(s.campDate4||null)},${v(s.questDone||null)}]`;
   }).join(',\n');
   let html = document.documentElement.outerHTML;
   html = html.replace(/const rawData = \[[\s\S]*?\];/, `const rawData = [\n${rows}\n];`);
@@ -3411,6 +3510,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderBoard();
 });
 </script>
+
 
 
 </body></html>
